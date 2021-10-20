@@ -5,3 +5,6 @@ C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\o
 C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\obj\Debug\lupastean-daniel-3134a.csproj.CoreCompileInputs.cache
 C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\obj\Debug\lupastean-daniel-3134a.exe
 C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\obj\Debug\lupastean-daniel-3134a.pdb
+C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\bin\Debug\OpenTK.dll
+C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\bin\Debug\OpenTK.pdb
+C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\bin\Debug\OpenTK.xml
