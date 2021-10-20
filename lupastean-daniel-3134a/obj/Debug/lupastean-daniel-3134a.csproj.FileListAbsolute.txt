@@ -1,0 +1,7 @@
+C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\bin\Debug\lupastean-daniel-3134a.exe.config
+C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\bin\Debug\lupastean-daniel-3134a.exe
+C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\bin\Debug\lupastean-daniel-3134a.pdb
+C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\obj\Debug\lupastean-daniel-3134a.csproj.AssemblyReference.cache
+C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\obj\Debug\lupastean-daniel-3134a.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\obj\Debug\lupastean-daniel-3134a.exe
+C:\Users\Daniel\Desktop\EGC\Teme\lupastean-daniel-3134a\lupastean-daniel-3134a\obj\Debug\lupastean-daniel-3134a.pdb
