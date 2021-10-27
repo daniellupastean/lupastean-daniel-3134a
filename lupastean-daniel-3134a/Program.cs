@@ -22,13 +22,15 @@ namespace lupastean_daniel_3134a
     {
         public const int XYZ_SIZE = 75;
         private double red = 1, green = 1, blue = 1, alpha = 1;
-        Vector3[] co = new Vector3[3];
+        private Vector3[] co = new Vector3[3];
         private Camera3D camera;
+        private ColorController colorController;
+        private Color color1, color2, color3;
 
         public Program() : base(800, 600, new GraphicsMode(32, 24, 0, 8))
         {
-            
-
+            // Cerinta 8 - Citirea din fisierul "coordonate.txt" a coordonatelor triunghiului
+            //-------------------------------------------------------------------------------
             string text = System.IO.File.ReadAllText(@"./../../coordonate.txt");
 
             System.Console.WriteLine("Contents of WriteText.txt = {0}", text);
@@ -41,13 +43,19 @@ namespace lupastean_daniel_3134a
                 co[i][1] = int.Parse(textCoord[1]);
                 co[i][2] = int.Parse(textCoord[2]);
             }
+            //-------------------------------------------------------------------------------
 
             VSync = VSyncMode.On;
 
             Console.WriteLine("OpenGl versiunea: " + GL.GetString(StringName.Version));
             Title = "OpenGl versiunea: " + GL.GetString(StringName.Version) + " (mod imediat)";
 
+            // Cerinta 8 - Instantierea obiectelor ce contin metode utile rotirii camerei, respectiv modificarii culorilor unui triunghi
             camera = new Camera3D();
+            colorController = new ColorController();
+            color1 = Color.Red;
+            color2 = Color.Red;
+            color3 = Color.Red;
         }
        
         protected override void OnLoad(EventArgs e)
@@ -105,45 +113,12 @@ namespace lupastean_daniel_3134a
             {
                 Exit();
             }
-            else if(keyboard[Key.Up] && keyboard[Key.R] && red<1)
-            {
-                red += 0.05;
-            }
-            else if (keyboard[Key.Down] && keyboard[Key.R] && red>0)
-            {
-                red -= 0.05;
-            }
-            else if(keyboard[Key.Up] && keyboard[Key.B] && blue<1)
-            {
-                blue += 0.05;
-            }
-            else if(keyboard[Key.Down] && keyboard[Key.B] && blue>0)
-            {
-                blue -= 0.05;
-            }
-            else if (keyboard[Key.Up] && keyboard[Key.G] && green < 1)
-            {
-                green += 0.05;
-            }
-            else if (keyboard[Key.Down] && keyboard[Key.G] && green > 0)
-            {
-                green -= 0.05;
-            }
-            else if (keyboard[Key.Up] && keyboard[Key.A] && alpha < 1)
-            {
-                alpha += 0.05;
-                Console.WriteLine(alpha);
 
-            }
-            else if (keyboard[Key.Down] && keyboard[Key.A] && alpha > 0)
-            {
-                alpha -= 0.05;
-                if(alpha < 0.05)
-                {
-                    alpha = 0;
-                }
-                Console.WriteLine(alpha);
-            }
+
+            colorController.SetColor(ref keyboard, ref red, ref blue, ref green, ref alpha);
+            colorController.SetVertexColors(ref keyboard, ref color1, ref color2, ref color3);
+
+            
         }
 
         protected override void OnRenderFrame(FrameEventArgs e)
@@ -154,26 +129,25 @@ namespace lupastean_daniel_3134a
             GL.Clear(ClearBufferMask.DepthBufferBit);
 
             DrawAxes();
-
             DrawObjects();
-
             SwapBuffers();
         }
 
         private void DrawAxes()
         {
+            // Cerinta 1 - Desenarea axelor folosind un singur apel GL.Begin()
             GL.Begin(PrimitiveType.Lines);
-            // Desenează axa Ox (cu roșu).
-            GL.Color3(Color.Red);
+            // Desenează axa Ox
+            GL.Color3(Color.White);
             GL.Vertex3(0, 0, 0);
             GL.Color3(Color.Blue);
             GL.Vertex3(XYZ_SIZE, 0, 0);
-            // Desenează axa Oy (cu galben).
-            GL.Color3(Color.Yellow);
+            // Desenează axa Oy.
+            GL.Color3(Color.White);
             GL.Vertex3(0, 0, 0);
             GL.Vertex3(0, XYZ_SIZE, 0);
-            // Desenează axa Oz (cu verde).
-            GL.Color3(Color.Green);
+            // Desenează axa Oz.
+            GL.Color3(Color.White);
             GL.Vertex3(0, 0, 0);
             GL.Vertex3(0, 0, XYZ_SIZE);
             GL.End();
@@ -190,11 +164,11 @@ namespace lupastean_daniel_3134a
             GL.End();
 
             GL.Begin(PrimitiveType.TriangleStrip);
-            GL.Color3(Color.Black);
+            GL.Color3(color1);
             GL.Vertex3(0, 0, 0);
-            GL.Color3(Color.White);
+            GL.Color3(color2);
             GL.Vertex3(0, -10, 0);
-            GL.Color3(Color.Yellow);
+            GL.Color3(color3);
             GL.Vertex3(10, 0, 0);
             GL.End();
         }
