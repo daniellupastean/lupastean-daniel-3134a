@@ -4,11 +4,14 @@ using System.Drawing;
 
 namespace lupastean_daniel_3134a
 {
+
+    // Aceasta clasa a fost creata pentru rezolvarea cerintelor 8 si 9 si pentru structurarea mai buna a codului
     class ColorController
     {
 
         // Cerinta 8 - Metoda pentru schimbarea culorii de pe fiecare canal a suprafetei primului triunghi ( R,G,B,A + Sageata Sus sau Jos)
-        public void SetColor(ref KeyboardState keyboard, ref double red, ref double blue, ref double green, ref double alpha)
+        // Am folosit argumente de tip ref pentru a modifica direct variabila(referinta) trimisa ca parametru
+        public void SetColor(KeyboardState keyboard, ref double red, ref double blue, ref double green, ref double alpha)
         {
             if (keyboard[Key.Up] && keyboard[Key.R] && red < 1)
             {
@@ -53,7 +56,7 @@ namespace lupastean_daniel_3134a
         // 3-4 : schimba culoarea vertexului 2
         // 5-6 : schimba culoarea vertexului 3
 
-        public void SetVertexColors(ref KeyboardState keyboard, ref Color color1, ref Color color2, ref Color color3)
+        public void SetVertexColors(KeyboardState keyboard, ref Color color1, ref Color color2, ref Color color3)
         {
             Color temp_color1 = color1;
             Color temp_color2 = color2;
@@ -84,7 +87,7 @@ namespace lupastean_daniel_3134a
                 color3 = Color.FromArgb(255, 0, 0, 255);
             }
 
-            // Cerinta 9 - afisarea in consola a culorilor vertexurilor daca acestea au fost schimbate
+            // Cerinta 9 - Afisarea in consola a culorilor vertexurilor daca acestea au fost schimbate
             if (temp_color1 != color1)
             {
                 Console.WriteLine("Vertex 1: " + color1);

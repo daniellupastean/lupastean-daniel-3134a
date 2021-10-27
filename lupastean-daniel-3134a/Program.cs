@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
@@ -21,10 +16,20 @@ namespace lupastean_daniel_3134a
     class Program : GameWindow
     {
         public const int XYZ_SIZE = 75;
+
+        // Cerinta 8 - Variabile pentru canalele de culoare folosite pt primul triunghi
         private double red = 1, green = 1, blue = 1, alpha = 1;
+
+        // Cerinta 8 - Vectorul de Vector3 in care vor fi citite coordonatele din fisier
         private Vector3[] co = new Vector3[3];
+
+        // Cerinta 8 - Declarare variabila de tipul Camera3D pentru utilizarea la rotirea camerei
         private Camera3D camera;
+
+        // Cerinta 8-9 - Declarare variabila controller pentru mofidicarea culorilor triunghiurilor
         private ColorController colorController;
+
+        // Cerinta 9 - Declarare variabile pentru stocarea culorilor folosite pentru fiecare vertex al triunghiului al doilea
         private Color color1, color2, color3;
 
         public Program() : base(800, 600, new GraphicsMode(32, 24, 0, 8))
@@ -53,6 +58,8 @@ namespace lupastean_daniel_3134a
             // Cerinta 8 - Instantierea obiectelor ce contin metode utile rotirii camerei, respectiv modificarii culorilor unui triunghi
             camera = new Camera3D();
             colorController = new ColorController();
+
+            // Cerinta 9 - Initializare culori vertexuri pt al doilea triunghi
             color1 = Color.Red;
             color2 = Color.Red;
             color3 = Color.Red;
@@ -81,43 +88,32 @@ namespace lupastean_daniel_3134a
             GL.MatrixMode(MatrixMode.Projection);
             GL.LoadMatrix(ref perspective);
 
-            Matrix4 lookat = Matrix4.LookAt(0, 0, 30, 0,0, 0, 0, 1, 0); //coordonatele camerei - primele 3
-            // urm 3 - pozitia targetului
-            // urm 3 - rotatia camerei
-            GL.MatrixMode(MatrixMode.Modelview);
-            GL.LoadMatrix(ref lookat);
-
+            // Cerinta 8 - Apelare metoda pentru initializarea pozitiei camerei
             camera.SetCamera();
         }
 
   
         protected override void OnUpdateFrame(FrameEventArgs e)
         {
-            base.OnUpdateFrame(e); //bucla de control a opentk
-            // este partea logica - update-urile de logica
+            base.OnUpdateFrame(e);
 
             KeyboardState keyboard = Keyboard.GetState();
             MouseState mouse = Mouse.GetState();
 
-            if (mouse[OpenTK.Input.MouseButton.Left] && mouse.X > 100)
-            {
-                camera.RotateRight();
-            }
-            else if (mouse[OpenTK.Input.MouseButton.Left] && mouse.X < 100)
-            {
-                camera.RotateLeft();
-            }
 
+            // Cerinta 8 - Apelare metoda pentru verificarea starii mouse-ului si rotirea camerei in jurul target-ului
+            camera.ControlCamera(mouse);
+
+            // Cerinta 8 - Apelare metoda pentru verificarea starii tastaturii si setarea culorilor de pe fiecare canal a primului triunghi
+            colorController.SetColor(keyboard, ref red, ref blue, ref green, ref alpha);
+
+            // Cerinta 9 - Apelare metoda pentru verificarea starii tastaturii si setarea culorilor pentru fiecare vertex a celui de-al doilea triunghi
+            colorController.SetVertexColors(keyboard, ref color1, ref color2, ref color3);
 
             if (keyboard[Key.Escape])
             {
                 Exit();
             }
-
-
-            colorController.SetColor(ref keyboard, ref red, ref blue, ref green, ref alpha);
-            colorController.SetVertexColors(ref keyboard, ref color1, ref color2, ref color3);
-
             
         }
 
@@ -155,7 +151,7 @@ namespace lupastean_daniel_3134a
 
         private void DrawObjects()
         {
-
+            // Cerinta 8 - Desenarea unui triunghi folosind coordonatele citite din fisier
             GL.Begin(PrimitiveType.Triangles);
             GL.Color4(red, green, blue, alpha);
             GL.Vertex3(co[0][0], co[0][1], co[0][2]);
@@ -163,6 +159,7 @@ namespace lupastean_daniel_3134a
             GL.Vertex3(co[2][0], co[2][1], co[2][2]);
             GL.End();
 
+            // Cerinta 9-10 - Desenarea celui de-al doilea triunghi si folosirea primitivei TriangleStrip utilizand culori diferite pentru vertex-uri
             GL.Begin(PrimitiveType.TriangleStrip);
             GL.Color3(color1);
             GL.Vertex3(0, 0, 0);
