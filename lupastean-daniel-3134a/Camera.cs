@@ -5,9 +5,9 @@ using OpenTK.Input;
 namespace lupastean_daniel_3134a
 {   
     // Aceasta clasa a fost implementata pentru a ajuta la rezolvarea cerintei 8 si pentru structurarea mai buna a codului
-    class Camera3D
+    class Camera
     {
-        private Vector3 eye = new Vector3(0, 10, 30);
+        private Vector3 eye = new Vector3(0, 20, 40);
         private Vector3 target = new Vector3(0, 0, 0);
         private Vector3 up = new Vector3(0, 1, 0);
         private const int MOVEMENT_UNIT = 1;
