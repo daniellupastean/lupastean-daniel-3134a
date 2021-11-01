@@ -53,6 +53,7 @@
     <Compile Include="ColorController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomColorGenerator.cs" />
     <Compile Include="Window.cs" />
   </ItemGroup>
   <ItemGroup>

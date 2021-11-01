@@ -17,6 +17,8 @@ namespace lupastean_daniel_3134a
 
         // Variabile pentru canalele de culoare
         private double red = 1, green = 1, blue = 1, alpha = 1;
+        private Color tcolor1 = Color.Yellow, tcolor2 = Color.Yellow, tcolor3 = Color.Yellow;
+        private RandomColorGenerator colorGenerator;
 
         // Declarare variabila controller pentru mofidicarea culorilor triunghiurilor
         private ColorController colorController;
@@ -40,6 +42,7 @@ namespace lupastean_daniel_3134a
             //-------------------------------------------------------------------------------
 
             colorController = new ColorController();
+            colorGenerator = new RandomColorGenerator();
 
         }
 
@@ -48,8 +51,9 @@ namespace lupastean_daniel_3134a
             KeyboardState keyboard = Keyboard.GetState();
             MouseState mouse = Mouse.GetState();
 
-            // Apelare metoda pentru verificarea starii tastaturii si setarea culorilor de pe fiecare canal
+
             colorController.SetColor(keyboard, ref red, ref blue, ref green, ref alpha);
+            colorController.SetTriangleColors(keyboard, ref tcolor1, ref tcolor2, ref tcolor3);
         }
 
         public void Draw()
@@ -62,8 +66,11 @@ namespace lupastean_daniel_3134a
                 else
                     GL.Color3(Color.Blue);
 
+                if (i == 18) GL.Color3(tcolor1);
                 GL.Vertex3(vertices[i]);
+                if (i == 18) GL.Color3(tcolor2);
                 GL.Vertex3(vertices[i + 1]);
+                if (i == 18) GL.Color3(tcolor3);
                 GL.Vertex3(vertices[i + 2]);
             }
             GL.End();
