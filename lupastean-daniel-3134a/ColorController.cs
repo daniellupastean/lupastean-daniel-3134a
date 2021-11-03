@@ -5,14 +5,14 @@ using System.Drawing;
 namespace lupastean_daniel_3134a
 {
 
-    // Aceasta clasa a fost creata pentru rezolvarea cerintelor 8 si 9 si pentru structurarea mai buna a codului
+    // Clasa pentru monipularea culorilor din scena 3D folosind tastatura
     class ColorController
     {
 
         private RandomColorGenerator colorGenerator = new RandomColorGenerator();
         private KeyboardState lastKeyPressed;
 
-        // Cerinta 8 - Metoda pentru schimbarea culorii de pe fiecare canal a suprafetei primului triunghi ( R,G,B,A + Sageata Sus sau Jos)
+        // Cerinta 1: Metoda pentru schimbarea culorii de pe fiecare canal a unei suprafete a cubului ( R,G,B,A + Sageata Sus sau Jos)
         // Am folosit argumente de tip ref pentru a modifica direct variabila(referinta) trimisa ca parametru
         public void SetColor(KeyboardState keyboard, ref double red, ref double blue, ref double green, ref double alpha)
         {
@@ -56,7 +56,7 @@ namespace lupastean_daniel_3134a
             
         }
 
-        // Cerinta 9 - Metoda pentru schimbarea culorilor vertexurilor celui de-al doilea triunghi la apasarea tastelor numerice 1-6
+        // Cerinta 2 - Metoda pentru setarea unor culori random vertexurilor triunghiului la apasarea tastelor numerice 1-3
         // 1 : schimba culoarea vertexului 1
         // 2 : schimba culoarea vertexului 2
         // 3 : schimba culoarea vertexului 3

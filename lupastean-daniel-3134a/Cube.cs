@@ -10,9 +10,10 @@ using OpenTK.Input;
 
 namespace lupastean_daniel_3134a
 {
+    // Clasa pentru gestionarea unui cub in spatiul 3D
     class Cube
     {
-        // Vectorul de Vector3 in care vor fi citite coordonatele din fisier
+        // Vectorul de Vector3 in care vor fi citite coordonatele cubului din fisier
         private List<Vector3> vertices;
 
         // Variabile pentru canalele de culoare
@@ -41,31 +42,43 @@ namespace lupastean_daniel_3134a
             }
             //-------------------------------------------------------------------------------
 
+            // Instantierea unor obiecte pentru controller-ul de culori si pentru generatorul de culori random
             colorController = new ColorController();
             colorGenerator = new RandomColorGenerator();
 
         }
 
+
+        // Metoda pentru setarea culorii cubului si a unui triunghi din componenta acestuia
         public void SetColor()
         {
+
+            // Definire obiecte pentru starea tastaturii si mouse-ului
             KeyboardState keyboard = Keyboard.GetState();
             MouseState mouse = Mouse.GetState();
 
-
+            // Setare culoare cub in functie de tastele apasate
             colorController.SetColor(keyboard, ref red, ref blue, ref green, ref alpha);
+            // Setare culoare triunghi din componenta cubului in fucntie de tastele apasate
             colorController.SetTriangleColors(keyboard, ref tcolor1, ref tcolor2, ref tcolor3);
         }
 
+
+        // Metoda pentru desenarea propriu-zisa a cubului pe ecran 
         public void Draw()
         {
             GL.Begin(PrimitiveType.Triangles);
             for (int i = 0; i < 36; i = i + 3)
             {
+
+                // Cerinta 1: Setarea culorii unei suprafete a cubului
                 if (i > 28)
                     GL.Color4(red, green, blue, alpha);
                 else
                     GL.Color3(Color.Blue);
 
+
+                // Cerinta 2 : blocuri pentru setarea unei culori generata random pentru fiecare vertex al unui triunghi din componenta cubului
                 if (i == 18) GL.Color3(tcolor1);
                 GL.Vertex3(vertices[i]);
                 if (i == 18) GL.Color3(tcolor2);

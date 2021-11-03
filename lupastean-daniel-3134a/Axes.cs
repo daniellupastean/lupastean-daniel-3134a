@@ -8,10 +8,13 @@ using System.Threading.Tasks;
 
 namespace lupastean_daniel_3134a
 {
+
+    // Clasa pentru gestiunea axelor din spatiul 3D
     class Axes
     {
         public const int XYZ_SIZE = 75;
 
+        // Metoda pentru desenarea propriu-zisa a axelor pe ecran
         public void Draw()
         {
             GL.Begin(PrimitiveType.Lines);
