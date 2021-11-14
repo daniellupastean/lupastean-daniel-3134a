@@ -1,37 +1,70 @@
 ﻿using OpenTK.Graphics.OpenGL;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lupastean_daniel_3134a
 {
-
-    // Clasa pentru gestiunea axelor din spatiul 3D
+    /// <summary>
+    /// This class renders an XYZ coordinates system for the 3D scene.
+    /// </summary>
     class Axes
     {
-        public const int XYZ_SIZE = 75;
+        private bool myVisibility;
 
-        // Metoda pentru desenarea propriu-zisa a axelor pe ecran
+        private const int AXIS_LENGTH = 75;
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public Axes()
+        {
+            myVisibility = true;
+        }
+
+        /// <summary>
+        /// This methods handles the drawing of the object. Must be called - always - from OnRenderFrame() method! The drawing can be unconditional.
+        /// </summary>
         public void Draw()
         {
-            GL.Begin(PrimitiveType.Lines);
-            // Desenează axa Ox
-            GL.Color3(Color.White);
-            GL.Vertex3(0, 0, 0);
-            GL.Color3(Color.Blue);
-            GL.Vertex3(XYZ_SIZE, 0, 0);
-            // Desenează axa Oy.
-            GL.Color3(Color.White);
-            GL.Vertex3(0, 0, 0);
-            GL.Vertex3(0, XYZ_SIZE, 0);
-            // Desenează axa Oz.
-            GL.Color3(Color.White);
-            GL.Vertex3(0, 0, 0);
-            GL.Vertex3(0, 0, XYZ_SIZE);
-            GL.End();
+            if (myVisibility)
+            {
+                GL.LineWidth(1.0f);
+
+                GL.Begin(PrimitiveType.Lines);
+                GL.Color3(Color.Red);
+                GL.Vertex3(0, 0, 0);
+                GL.Vertex3(AXIS_LENGTH, 0, 0);
+                GL.Color3(Color.ForestGreen);
+                GL.Vertex3(0, 0, 0);
+                GL.Vertex3(0, AXIS_LENGTH, 0);
+                GL.Color3(Color.RoyalBlue);
+                GL.Vertex3(0, 0, 0);
+                GL.Vertex3(0, 0, AXIS_LENGTH);
+                GL.End();
+            }
+        }
+
+        /// <summary>
+        /// Sets visibility of the object ON.
+        /// </summary>
+        public void Show()
+        {
+            myVisibility = true;
+        }
+
+        /// <summary>
+        /// Sets visibility of the object OFF.
+        /// </summary>
+        public void Hide()
+        {
+            myVisibility = false;
+        }
+
+        /// <summary>
+        /// Toggles the myVisibility of the object. Once triggered, the attribute is applied automatically on drawing.
+        /// </summary>
+        public void ToggleVisibility()
+        {
+            myVisibility = !myVisibility;
         }
     }
 }
