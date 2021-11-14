@@ -106,8 +106,32 @@ namespace lupastean_daniel_3134a
             // Desenarea cubului
             cube.Draw();
 
+
+            // Sfârșit desenare
+
             SwapBuffers();
 
+        }
+
+        /// <summary>
+        /// Internal method, used to dump the menu on the console window (text mode!)...
+        /// </summary>
+        private void DisplayHelp()
+        {
+            Console.WriteLine("\n      MENIU");
+            Console.WriteLine(" (H) - meniul");
+            Console.WriteLine(" (ESC) - parasire aplicatie");
+            Console.WriteLine(" (K) - schimbare vizibilitate sistem de axe");
+            Console.WriteLine(" (R) - resteaza scena la valori implicite");
+            Console.WriteLine(" (B) - schimbare culoare de fundal");
+            Console.WriteLine(" (V) - schimbare vizibilitate linii");
+            Console.WriteLine(" (W,A,S,D) - deplasare camera (izometric)");
+        }
+
+        private void TimeStampIt(String source, String counter)
+        {
+            String dt = DateTime.Now.ToString("hh:mm:ss.ffff");
+            Console.WriteLine("     TSTAMP from <" + source + "> on iteration <" + counter + ">: " + dt);
         }
 
     }
