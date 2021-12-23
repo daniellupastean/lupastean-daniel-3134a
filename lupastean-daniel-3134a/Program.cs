@@ -1,27 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Text.RegularExpressions;
-using OpenTK;
-using OpenTK.Graphics;
-using OpenTK.Graphics.OpenGL;
-using OpenTK.Input;
-
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace lupastean_daniel_3134a
 {
-    /// Clasa ce contine punctul de intrare in aplicatie
-    class Program {
-
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
-            // Instatierea unui obiect de tipul Window
-            using (Window3D example = new Window3D())
-            {
-                example.Run(30.0, 0.0);
-            }
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
         }
     }
 }
-
