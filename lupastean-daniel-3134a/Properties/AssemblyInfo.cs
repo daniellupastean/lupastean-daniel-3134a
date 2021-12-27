@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("lupastean-daniel-3134a")]
+[assembly: AssemblyTitle("lupastean_daniel_3134a")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("lupastean-daniel-3134a")]
+[assembly: AssemblyProduct("lupastean_daniel_3134a")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("43f8d4ad-2f31-4f87-9b93-ad764b2e98f7")]
+[assembly: Guid("df38caab-0f80-44e7-bf0e-c260fc4f7ca4")]
 
 // Version information for an assembly consists of the following four values:
 //

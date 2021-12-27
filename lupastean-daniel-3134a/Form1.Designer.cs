@@ -79,7 +79,21 @@ namespace lupastean_daniel_3134a
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.btnLightsNo = new System.Windows.Forms.Button();
-            this.btnLight1 = new System.Windows.Forms.Button();
+            this.btnTexQ_1 = new System.Windows.Forms.Button();
+            this.btnTexQ_2 = new System.Windows.Forms.Button();
+            this.btnReset_Tex1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbTexture0 = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbColorBlue = new System.Windows.Forms.RadioButton();
+            this.rbColorRed = new System.Windows.Forms.RadioButton();
+            this.rbColorWhite = new System.Windows.Forms.RadioButton();
+            this.btnReset_Tex2 = new System.Windows.Forms.Button();
+            this.btnTexT_2 = new System.Windows.Forms.Button();
+            this.btnTexT_1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericXeye)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericYeye)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericZeye)).BeginInit();
@@ -96,6 +110,10 @@ namespace lupastean_daniel_3134a
             ((System.ComponentModel.ISupportInitialize)(this.numericLight0Specular_Blue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLight0Specular_Green)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLight0Specular_Red)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // GlControl1
@@ -685,21 +703,183 @@ namespace lupastean_daniel_3134a
             this.btnLightsNo.UseVisualStyleBackColor = true;
             this.btnLightsNo.Click += new System.EventHandler(this.btnLightsNo_Click);
             // 
-            // btnLight1
+            // btnTexQ_1
             // 
-            this.btnLight1.Location = new System.Drawing.Point(912, 129);
-            this.btnLight1.Name = "btnLight1";
-            this.btnLight1.Size = new System.Drawing.Size(136, 32);
-            this.btnLight1.TabIndex = 57;
-            this.btnLight1.UseVisualStyleBackColor = true;
-            this.btnLight1.Click += new System.EventHandler(this.btnLight1_Click);
+            this.btnTexQ_1.Location = new System.Drawing.Point(1336, 13);
+            this.btnTexQ_1.Name = "btnTexQ_1";
+            this.btnTexQ_1.Size = new System.Drawing.Size(283, 32);
+            this.btnTexQ_1.TabIndex = 57;
+            this.btnTexQ_1.Text = "Load cube (quads) - texture 1 (100%)";
+            this.btnTexQ_1.UseVisualStyleBackColor = true;
+            this.btnTexQ_1.Click += new System.EventHandler(this.btnTexQ_1_Click);
+            // 
+            // btnTexQ_2
+            // 
+            this.btnTexQ_2.Location = new System.Drawing.Point(1336, 61);
+            this.btnTexQ_2.Name = "btnTexQ_2";
+            this.btnTexQ_2.Size = new System.Drawing.Size(283, 32);
+            this.btnTexQ_2.TabIndex = 58;
+            this.btnTexQ_2.Text = "Load cube (quads) - texture 1 (50%)";
+            this.btnTexQ_2.UseVisualStyleBackColor = true;
+            this.btnTexQ_2.Click += new System.EventHandler(this.btnTexQ_2_Click);
+            // 
+            // btnReset_Tex1
+            // 
+            this.btnReset_Tex1.Location = new System.Drawing.Point(1625, 13);
+            this.btnReset_Tex1.Name = "btnReset_Tex1";
+            this.btnReset_Tex1.Size = new System.Drawing.Size(73, 80);
+            this.btnReset_Tex1.TabIndex = 59;
+            this.btnReset_Tex1.Text = "Reset";
+            this.btnReset_Tex1.UseVisualStyleBackColor = true;
+            this.btnReset_Tex1.Click += new System.EventHandler(this.btnReset_Tex1_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.rbTexture0);
+            this.groupBox1.Location = new System.Drawing.Point(1336, 112);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 109);
+            this.groupBox1.TabIndex = 60;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Texture";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(7, 49);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(110, 21);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.Text = "Logo (alpha!)";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // rbTexture0
+            // 
+            this.rbTexture0.AutoSize = true;
+            this.rbTexture0.Checked = true;
+            this.rbTexture0.Location = new System.Drawing.Point(7, 22);
+            this.rbTexture0.Name = "rbTexture0";
+            this.rbTexture0.Size = new System.Drawing.Size(64, 21);
+            this.rbTexture0.TabIndex = 0;
+            this.rbTexture0.TabStop = true;
+            this.rbTexture0.Text = "Bricks";
+            this.rbTexture0.UseVisualStyleBackColor = true;
+            this.rbTexture0.CheckedChanged += new System.EventHandler(this.rbTexture0_CheckedChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbColorBlue);
+            this.groupBox2.Controls.Add(this.rbColorRed);
+            this.groupBox2.Controls.Add(this.rbColorWhite);
+            this.groupBox2.Location = new System.Drawing.Point(1542, 112);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(156, 109);
+            this.groupBox2.TabIndex = 61;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Color";
+            // 
+            // rbColorBlue
+            // 
+            this.rbColorBlue.AutoSize = true;
+            this.rbColorBlue.Location = new System.Drawing.Point(7, 79);
+            this.rbColorBlue.Name = "rbColorBlue";
+            this.rbColorBlue.Size = new System.Drawing.Size(54, 21);
+            this.rbColorBlue.TabIndex = 2;
+            this.rbColorBlue.Text = "Blue";
+            this.rbColorBlue.UseVisualStyleBackColor = true;
+            this.rbColorBlue.CheckedChanged += new System.EventHandler(this.rbColorBlue_CheckedChanged);
+            // 
+            // rbColorRed
+            // 
+            this.rbColorRed.AutoSize = true;
+            this.rbColorRed.Location = new System.Drawing.Point(7, 49);
+            this.rbColorRed.Name = "rbColorRed";
+            this.rbColorRed.Size = new System.Drawing.Size(52, 21);
+            this.rbColorRed.TabIndex = 1;
+            this.rbColorRed.Text = "Red";
+            this.rbColorRed.UseVisualStyleBackColor = true;
+            this.rbColorRed.CheckedChanged += new System.EventHandler(this.rbColorRed_CheckedChanged);
+            // 
+            // rbColorWhite
+            // 
+            this.rbColorWhite.AutoSize = true;
+            this.rbColorWhite.Checked = true;
+            this.rbColorWhite.Location = new System.Drawing.Point(7, 22);
+            this.rbColorWhite.Name = "rbColorWhite";
+            this.rbColorWhite.Size = new System.Drawing.Size(62, 21);
+            this.rbColorWhite.TabIndex = 0;
+            this.rbColorWhite.TabStop = true;
+            this.rbColorWhite.Text = "White";
+            this.rbColorWhite.UseVisualStyleBackColor = true;
+            this.rbColorWhite.CheckedChanged += new System.EventHandler(this.rbColorWhite_CheckedChanged);
+            // 
+            // btnReset_Tex2
+            // 
+            this.btnReset_Tex2.Location = new System.Drawing.Point(1625, 236);
+            this.btnReset_Tex2.Name = "btnReset_Tex2";
+            this.btnReset_Tex2.Size = new System.Drawing.Size(73, 80);
+            this.btnReset_Tex2.TabIndex = 64;
+            this.btnReset_Tex2.Text = "Reset";
+            this.btnReset_Tex2.UseVisualStyleBackColor = true;
+            this.btnReset_Tex2.Click += new System.EventHandler(this.btnReset_Tex2_Click);
+            // 
+            // btnTexT_2
+            // 
+            this.btnTexT_2.Location = new System.Drawing.Point(1336, 284);
+            this.btnTexT_2.Name = "btnTexT_2";
+            this.btnTexT_2.Size = new System.Drawing.Size(283, 32);
+            this.btnTexT_2.TabIndex = 63;
+            this.btnTexT_2.Text = "Load cube (quads) - texture 1 (50%)";
+            this.btnTexT_2.UseVisualStyleBackColor = true;
+            this.btnTexT_2.Click += new System.EventHandler(this.btnTexT_2_Click);
+            // 
+            // btnTexT_1
+            // 
+            this.btnTexT_1.Location = new System.Drawing.Point(1336, 236);
+            this.btnTexT_1.Name = "btnTexT_1";
+            this.btnTexT_1.Size = new System.Drawing.Size(283, 32);
+            this.btnTexT_1.TabIndex = 62;
+            this.btnTexT_1.Text = "Load cube (quads) - texture 1 (100%)";
+            this.btnTexT_1.UseVisualStyleBackColor = true;
+            this.btnTexT_1.Click += new System.EventHandler(this.btnTexT_1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::lupastean_daniel_3134a.Properties.Resources.brickTexture;
+            this.pictureBox1.Location = new System.Drawing.Point(1436, 669);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 121);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 65;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::lupastean_daniel_3134a.Properties.Resources.OpenGLTexture;
+            this.pictureBox2.Location = new System.Drawing.Point(1570, 668);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(128, 121);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 66;
+            this.pictureBox2.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1317, 802);
-            this.Controls.Add(this.btnLight1);
+            this.ClientSize = new System.Drawing.Size(1710, 802);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnReset_Tex2);
+            this.Controls.Add(this.btnTexT_2);
+            this.Controls.Add(this.btnTexT_1);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnReset_Tex1);
+            this.Controls.Add(this.btnTexQ_2);
+            this.Controls.Add(this.btnTexQ_1);
             this.Controls.Add(this.btnLightsNo);
             this.Controls.Add(this.numericLight0Specular_Blue);
             this.Controls.Add(this.numericLight0Specular_Green);
@@ -750,11 +930,9 @@ namespace lupastean_daniel_3134a
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.GlControl1);
-            this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "Illumination";
+            this.Text = "Texturing";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.numericXeye)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericYeye)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericZeye)).EndInit();
@@ -771,6 +949,12 @@ namespace lupastean_daniel_3134a
             ((System.ComponentModel.ISupportInitialize)(this.numericLight0Specular_Blue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLight0Specular_Green)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLight0Specular_Red)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -828,6 +1012,21 @@ namespace lupastean_daniel_3134a
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button btnLightsNo;
-        private System.Windows.Forms.Button btnLight1;
+        private System.Windows.Forms.Button btnTexQ_1;
+        private System.Windows.Forms.Button btnTexQ_2;
+        private System.Windows.Forms.Button btnReset_Tex1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rbTexture0;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbColorBlue;
+        private System.Windows.Forms.RadioButton rbColorRed;
+        private System.Windows.Forms.RadioButton rbColorWhite;
+        private System.Windows.Forms.Button btnReset_Tex2;
+        private System.Windows.Forms.Button btnTexT_2;
+        private System.Windows.Forms.Button btnTexT_1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
+
